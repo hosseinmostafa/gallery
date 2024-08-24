@@ -1,0 +1,157 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    background-color: #141414;
+}
+
+header {
+    position: fixed;
+    top: 0px;
+    left: 0px;
+    width: 100%;
+    padding: 20px 100px;
+    background: transparent;
+    border-bottom: 2px solid rgb(255 255 255 / 50%);
+    backdrop-filter: blur(10px);
+    box-shadow: 0 0 30px rgb(0 0 0 / 50%);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    z-index: 99;
+    border-bottom: 1px solid;
+}
+
+
+.logo {
+    font-size: 2em;
+    user-select: none;
+    color: white;
+    
+}
+
+.nav-igation img {
+    position: relative;
+    width: 40px;
+    margin-left: 40px;
+    filter: invert(46%) sepia(99%) saturate(1449%) hue-rotate(176deg) brightness(100%) contrast(91%);
+    font-size: 19px;
+    color: #0F141A;
+    font-weight: 700;
+    padding: 5px;
+    transition: .3s;
+    cursor: pointer;
+}
+.nav-igation img:first-child{
+    margin-left: 0px;
+    
+}
+.nav-igation img:hover {
+    background-color: rgba(57, 151, 201, 0.479);
+    
+    color: #000;
+    border-radius: 8px;
+}
+
+.contact-chip {
+    width: 200px;
+    display: flex;
+    align-items: center;
+    background-color: rgba(57, 151, 201, 0.479);
+    border-radius: 50px;
+    padding: 4px;
+    transition: width 0.6s ease-in-out;
+    cursor: pointer;
+}
+
+
+.contact-chip .profile-image {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    margin-right: 10px;
+    transition: 0.4s ease-in-out;
+}
+.contact-chip .profile-image:hover{
+    transform: scale(1.1) ; 
+    opacity: 0.8;
+}
+
+.contact-chip .name {
+    font-weight: bold;
+    font-size: 16px;
+    color: rgb(206, 207, 207);
+    overflow: hidden;
+}
+
+.contact-chip .close-button {
+    position: relative;
+    right: 20px;
+    margin-left: auto;
+    cursor: pointer;
+    overflow: hidden;
+}
+
+.contact-chip.closed {
+    width: 50px;
+}
+
+.nav-igation .btn-login-popup:hover {
+    background-color: black;
+    color: white;
+}
+
+.conter {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+}
+
+:root {
+    --transition: cubic-bezier(.1, .7, 0, 1);
+}
+
+.items {
+    display: flex;
+    gap: 0.4rem;
+    perspective: calc(var(--index) * 60);
+}
+
+.item {
+    width: 200px;
+    height: 200px;
+    background-color: #222;
+    background-size: cover;
+    background-position: center;
+    cursor: pointer;
+    filter: grayscale(1) brightness(.5);
+    transition: transform 1.25s var(--transition), filter 3s var(--transition), width 1.25s var(--transition);
+}
+
+.item::before,
+.item::after {
+    content: '';
+    position: absolute;
+    height: 100%;
+    width: 20px;
+    right: calc(var(--index) * -1);
+}
+
+.item::after {
+    left: calc(var(--index) * -1);
+}
+
+.items .item:hover {
+    filter: inherit;
+    transform: scale(1.2);
+}
+
+
+.items .item:hover + *{
+    transform: translateZ(calc(var(--index) * 8.5)) rotateY(35deg);
+    z-index: -1;
+}
